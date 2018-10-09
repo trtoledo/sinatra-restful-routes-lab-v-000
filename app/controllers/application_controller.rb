@@ -35,4 +35,8 @@ class ApplicationController < Sinatra::Base
     @recipe.save
     redirect to "/articles/#{@article.id}"
   end
+
+  get '/index' do
+    Recipe.all = @recipes
+  end
 end
