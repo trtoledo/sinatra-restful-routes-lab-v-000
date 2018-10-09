@@ -4,6 +4,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
   get '/' do
+    Recipe.all = @recipes
     erb :index
   end
 
@@ -36,8 +37,8 @@ class ApplicationController < Sinatra::Base
     redirect to "/articles/#{@article.id}"
   end
 
-  get '/index' do
-    Recipe.all = @recipes
-    erb :index  
-  end
+  # get '/index' do
+  #   Recipe.all = @recipes
+  #   erb :index  
+  # end
 end
